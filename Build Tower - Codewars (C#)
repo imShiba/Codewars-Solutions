@@ -1,0 +1,22 @@
+using System;
+public class Kata
+{
+  public static string[] TowerBuilder(int nFloors)
+  {
+    string[] arr = new string[nFloors];
+        
+    for(int y = 0; y < nFloors; y++){
+        string ast = "*";//asterisk
+
+        for(int z = 0; z < y; z++){
+            ast += "**";//asterisk
+        }
+
+        ast = new String(' ', (nFloors-y)-1) + ast;//add space before the asterisk
+        ast += new String(' ', (nFloors-y)-1);//add space after the asterisk
+        arr[y] = ast;
+    }
+    
+    return arr;
+  }
+}

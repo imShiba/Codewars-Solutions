@@ -1,0 +1,30 @@
+//Im not confident with this answer, I'll refractor this soon.
+
+using System.Linq;
+using System;
+public static class Kata 
+{
+  public static bool XO (string input)
+  {
+    char[] strList = input.ToCharArray();
+    int noX = 0;
+    int noO = 0;
+    
+    foreach(char x in strList){
+        if(char.ToLower(x) == 'x'){
+            noX+= 1;
+        }
+        else if(char.ToLower(x) == 'o'){
+            noO += 1;
+        }
+    }
+    
+    if((noX == noO) || (noX == 0 && noO == 0)){
+      return true;
+    }
+    else{
+      return false;
+    }
+    
+  }
+}

@@ -1,0 +1,19 @@
+namespace Kata
+{
+  public static class Problem
+  {
+    public static string CamelCase(this string str)  
+    {  
+      string[] strList = str.Split(" ");
+      string result = "";
+
+      foreach(string x in strList){
+        if(x.Length > 0){
+          result += char.ToUpper(x[0]) + x.Substring(1);
+        }
+      }
+      
+      return result;
+    }
+  }
+}

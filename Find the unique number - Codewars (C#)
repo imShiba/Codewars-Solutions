@@ -1,0 +1,30 @@
+//Im not confident with this answer, I'll refractor this soon.
+
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static int GetUnique(IEnumerable<int> numbers)
+  {
+    int first = 0;
+    int second = 0;
+    int Scount = 0;
+    foreach(int i in numbers){
+      first = i;
+      break;
+    }
+    foreach(int x in numbers){
+      if(first != x){
+        second = x;
+        Scount += 1;
+      }
+    }
+    
+    if(Scount == 1){
+      return second;
+    }else{
+      return first;
+    }
+  }
+}

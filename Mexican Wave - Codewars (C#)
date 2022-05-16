@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+
+namespace CodeWars
+{
+    public class Kata
+    {
+        public List<string> wave(string str)
+        {
+          List<string> waveWords = new List<string>();
+      
+          for(int z = 0; z < str.Length; z++){
+            if(char.IsLetter(str[z])){
+              waveWords.Add( str.Substring(0,z) + char.ToUpper(str[z]) + str.Substring(1+z));
+            }
+          }
+          
+          return waveWords;
+        }
+    }
+}

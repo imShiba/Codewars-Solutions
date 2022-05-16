@@ -1,0 +1,26 @@
+using System;
+
+public class Kata
+{
+  public static string PigIt(string str)
+  {
+    string[] words = str.Split(" ");
+    string res = "";
+    string final = "";
+    foreach(string x in words){
+        res = "";
+        foreach(char i in x.Remove(0,1)){
+            res += i;
+        }
+        
+        if(char.IsLetter(x, 0)){
+            final += res + x[0] + "ay ";
+        }
+        else{
+            final += res + x[0];
+        }
+    }
+    
+    return final.TrimEnd(' ');
+  }
+}

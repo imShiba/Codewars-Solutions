@@ -1,0 +1,18 @@
+using System;
+public static class Kata
+{
+  public static string AlphabetPosition(string text)
+  {
+    char[] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    char[] strVals = text.ToCharArray();
+    string x = "";
+
+    foreach(char z in strVals){
+        if(char.IsLetter(z)){
+            x += Array.IndexOf(alphabet, char.ToLower(z)) + 1 + " ";
+        }
+    }
+    
+    return x.TrimEnd();
+  }
+}

@@ -1,0 +1,32 @@
+//Im not confident with this answer, I'll refractor this soon.
+
+using System;
+
+public static class Kata
+{
+  public static string HighAndLow(string numbers)
+  {
+    string[] numberList = numbers.Split(" ");
+    int lowest = 2147483647;
+    int highest = -2147483647;
+    
+    
+    //For Lowest
+    foreach(string number in numberList){
+      int converted = Convert.ToInt32(number);
+      if(lowest > converted){
+        lowest = converted;
+      }
+    }
+    
+    //For Highest
+    foreach(string number in numberList){
+      int converted = Convert.ToInt32(number);
+      if(highest < converted){
+        highest = converted;
+      }
+    }
+    
+    return highest.ToString() + " " + lowest.ToString();
+  }
+}

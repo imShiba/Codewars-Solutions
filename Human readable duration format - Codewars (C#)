@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+public class HumanTimeFormat{
+  public static string formatDuration(int seconds){
+    int v = (seconds / 31536000);//years
+    int w = (seconds / 86400) % 365;//days
+    int x = (seconds / 3600) % 24;//hours
+    int y = (seconds / 60) % 60;//minutes
+    int z = (seconds % 60);//seconds
+    int nextCount = 0;// for "and" or ","
+
+    List<int> results = new List<int>(){v,w,x,y,z}; //List of results
+    List<string> label = new List<string>(){"year","day","hour","minute","second"}; //List of labels
+    string res = "";
+
+    for(int a = 0; a < results.Count; a++){
+        nextCount = 0;
+        if(results[a] != 0){ // Will concat every item more than zero value.
+            res += string.Format("{0} {1}{2}", results[a], label[a], results[a] != 1 ? "s":string.Empty);// Concat every items and add 's' if it is more than 1 value.
+
+            for(int b = 1 + a; b < results.Count; b++){ // Count how many items with value left.
+                if(results[b] != 0){
+                    nextCount+=1;
+                }
+            }
+        }
+
+        if(nextCount == 1) {res += " and ";} // If the next item is the last one.
+        else if(nextCount > 1) {res += ", ";} // If there is more next items.
+    }
+    
+    return seconds != 0 ? res:"now";//if the given value is zero then it will return 'now' else it will return the final value.
+  }
+}

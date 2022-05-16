@@ -1,0 +1,16 @@
+using System;
+public class Kata
+{
+  public static string CreatePhoneNumber(int[] numbers)
+  {
+    string x = "";
+        
+    foreach(int i in numbers){
+      x += i;
+    }
+
+    string formatted = String.Format("{0:(0##) ###-####}",Int64.Parse(x));
+    
+    return formatted;
+  }
+}

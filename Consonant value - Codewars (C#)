@@ -1,0 +1,22 @@
+public class Kata
+{
+    public static int Solve(string s)
+    {
+      string[] x = s.Split(new char [] {'a','e','i','o','u'});
+      int highest = 0;
+      int total = 0;
+
+      foreach(string a in x){
+          total = 0;
+          foreach(char z in a){
+              total += z % 32;
+          }
+
+          if(total > highest){
+            highest = total;
+          }
+      }
+      
+      return highest;
+    }
+}

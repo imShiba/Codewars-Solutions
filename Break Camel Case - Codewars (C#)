@@ -1,0 +1,19 @@
+public class Kata
+{
+  public static string BreakCamelCase(string str)
+  {
+    char[] strList = str.ToCharArray();
+    string result = "";
+    
+    foreach(char x in strList){
+      if(x != char.ToUpper(x)){
+        result += x.ToString();
+      }
+      else{
+        result += " " + x.ToString();
+      }
+    }
+    
+    return result;
+  }
+}

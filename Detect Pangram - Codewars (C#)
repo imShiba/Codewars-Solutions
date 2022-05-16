@@ -1,0 +1,27 @@
+using System;
+
+public static class Kata
+{
+  public static bool IsPangram(string str)
+  {
+    
+    char[] strList = str.ToCharArray();
+    string stringVal = "";
+
+    foreach(char x in strList){
+      if(char.IsLetter(x)){
+        if (stringVal.IndexOf(char.ToLower(x)) == -1) //will add unique characters to the array
+        {
+            stringVal += char.ToLower(x);
+        }
+      }
+    }
+    
+    if(stringVal.Length == 26){ //if the array length is equals to 26 (number of alphabets)
+      return true; //the given string is pangram
+    }
+    else{
+      return false;
+    }
+  }
+}

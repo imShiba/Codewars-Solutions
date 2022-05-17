@@ -1,0 +1,18 @@
+public class Kata
+{
+  public static string FirstNonRepeatingLetter(string s)
+  {
+    int count = 0;
+    foreach (char values in s)
+    {
+        count = 0;
+        for(int z = 0; z < s.Length; z++){
+            if(char.ToLower(values) == char.ToLower(s[z])) count += 1;
+        }
+        
+        if(count == 1) return values.ToString();
+    }
+    
+    return "";
+  }
+}

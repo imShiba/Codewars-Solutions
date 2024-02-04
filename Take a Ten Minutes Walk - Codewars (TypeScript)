@@ -1,0 +1,25 @@
+function countOccurrences(arr: any[]): { [key: string]: number } {
+    const counts: { [key: string]: number } = {};
+    
+    arr.forEach(item => {
+        counts[item] = (counts[item] || 0) + 1;
+    });
+    
+    return counts;
+}
+
+export function isValidWalk(walk: string[]) {
+    
+    if(walk.length !== 10) { 
+      return false 
+    } 
+    else{ 
+      const occ = countOccurrences(walk)
+
+      if(occ.n === occ.s && occ.w === occ.e){
+        return true
+      }
+
+      return false
+    }
+}
